@@ -1,8 +1,9 @@
 streamlit
+joblib
 pandas
 numpy
-joblib
+easyocr
 opencv-python-headless
 Pillow
 ultralytics
-easyocr
+scikit-learn
