@@ -72,7 +72,7 @@ with st.container():
     st.subheader("📁 Upload Gambar Mobil dari File")
     car_image = st.file_uploader("Upload Foto Mobil", type=["jpg", "jpeg", "png"])
     if car_image:
-        st.image(car_image, caption="Gambar Mobil", use_column_width=True)
+        st.image(car_image, caption="Gambar Mobil", use_container_width=True)
 
     # === PLAT NOMOR ===
     st.subheader("🏷️ Ambil Gambar Plat Nomor dari Kamera")
