@@ -68,8 +68,9 @@ with st.container():
     st.markdown("<div class='custom-container'>", unsafe_allow_html=True)
 
     # === GAMBAR MOBIL ===
-    st.subheader("📷 Ambil Gambar Mobil dari Kamera")
-    car_image = st.camera_input("Ambil Foto Mobil")
+    # === GAMBAR MOBIL ===
+    st.subheader("📁 Upload Gambar Mobil dari File")
+    car_image = st.file_uploader("Upload Foto Mobil", type=["jpg", "jpeg", "png"])
     if car_image:
         st.image(car_image, caption="Gambar Mobil", use_column_width=True)
 
