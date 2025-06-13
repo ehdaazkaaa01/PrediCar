@@ -1,0 +1,8 @@
+streamlit
+pandas
+numpy
+joblib
+opencv-python-headless
+Pillow
+ultralytics
+easyocr
