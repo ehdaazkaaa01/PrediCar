@@ -6,10 +6,8 @@ from PIL import Image
 import numpy as np
 from ultralytics import YOLO
 
-# === CONFIG HALAMAN ===
 st.set_page_config(page_title="Prediksi Harga Mobil Toyota Bekas", layout="centered")
 
-# === CSS UI ELEGAN NAVY & KUNING ===
 def set_custom_background():
     st.markdown("""
         <style>
@@ -57,24 +55,19 @@ def set_custom_background():
 
 set_custom_background()
 
-# === HEADER ===
 st.markdown("""
     <h1 style='text-align: center;'>🚗 Prediksi Harga Mobil Toyota Bekas</h1>
     <hr style='border: 1px solid #f9cb40;'>
 """, unsafe_allow_html=True)
 
-# === CONTAINER UNTUK ISI UTAMA ===
 with st.container():
     st.markdown("<div class='custom-container'>", unsafe_allow_html=True)
 
-    # === GAMBAR MOBIL ===
-    # === GAMBAR MOBIL ===
     st.subheader("📁 Upload Gambar Mobil dari File")
     car_image = st.file_uploader("Upload Foto Mobil", type=["jpg", "jpeg", "png"])
     if car_image:
         st.image(car_image, caption="Gambar Mobil", use_container_width=True)
 
-    # === PLAT NOMOR ===
     st.subheader("🏷️ Ambil Gambar Plat Nomor dari Kamera")
     plate_image = st.camera_input("Ambil Foto Plat Nomor")
     plate_text = "Belum terbaca"
@@ -101,7 +94,6 @@ with st.container():
         else:
             st.warning("Plat nomor tidak terdeteksi.")
 
-    # === INPUT FITUR ===
     st.subheader("📋 Masukkan Spesifikasi Mobil")
     model_input = st.text_input("Model (contoh: Yaris)")
     year = st.number_input("Tahun", min_value=1990, max_value=2025, step=1)
@@ -110,7 +102,6 @@ with st.container():
     mpg = st.number_input("MPG")
     engineSize = st.number_input("Ukuran Mesin (Liter)")
 
-    # === PREDIKSI ===
     def predict_price(input_data):
         model_knn = joblib.load("knn_model.pkl")
         scaler = joblib.load("scaler.pkl")
@@ -129,7 +120,6 @@ with st.container():
         pred = model_knn.predict(input_scaled)
         return pred[0]
 
-    # === TOMBOL PREDIKSI ===
     if st.button("🔍 Prediksi Harga"):
         if model_input and year and mileage and tax and mpg and engineSize:
             data_input = {
